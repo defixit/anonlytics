@@ -1,0 +1,16 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  anonlytics.track_service:
+    class: DeFixIT\Anonlytics\Service\TrackService
+    arguments:
+      $parameterBag: "@parameter_bag"
+
+  anonlytics.response_subscriber:
+    class: DeFixIT\Anonlytics\EventListener\RequestSubscriber
+    arguments:
+      $trackService: '@anonlytics.track_service'
+    tags:
+      - { name: kernel.event_subscriber }
