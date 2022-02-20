@@ -1,3 +1,4 @@
+![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 # Anonlytics
 In a world with all GDPR rules, an IP address is now already labeled as personal information and can therefore not just be passed on by your website/application.
 

@@ -24,7 +24,7 @@ class TrackService
         $this->parameterBag = $parameterBag;
     }
 
-    public function sendRequestData(ServerBag $server)
+    public function sendRequestData(ServerBag $server): void
     {
         $curl = curl_init();
 

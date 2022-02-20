@@ -26,7 +26,7 @@ class RequestSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function onKernelRequest(RequestEvent $event)
+    public function onKernelRequest(RequestEvent $event): void
     {
        $this->trackService->sendRequestData($event->getRequest()->server);
     }
