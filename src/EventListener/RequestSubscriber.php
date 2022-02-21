@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace DeFixIT\Anonlytics\EventListener;
+namespace DeFixIT\AnonlyticsBundle\EventListener;
 
-use DeFixIT\Anonlytics\Service\TrackService;
+use DeFixIT\Anonlytics\Tracker;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 class RequestSubscriber implements EventSubscriberInterface
 {
-    private TrackService $trackService;
+    private ParameterBagInterface $parameterBag;
 
-    public function __construct(
-        TrackService $trackService
-    ) {
-        $this->trackService = $trackService;
+    public function __construct(ParameterBagInterface $parameterBag)
+    {
+        $this->parameterBag = $parameterBag;
     }
 
     public static function getSubscribedEvents(): array
@@ -28,6 +28,12 @@ class RequestSubscriber implements EventSubscriberInterface
 
     public function onKernelRequest(RequestEvent $event): void
     {
-       $this->trackService->sendRequestData($event->getRequest()->server);
+        $tracker = new Tracker(
+            $event->getRequest()->server->all(),
+            $this->parameterBag->get('anonlytics.client_token'),
+            $this->parameterBag->get('anonlytics.site_token')
+        );
+
+       $tracker->sendRequestData();
     }
 }

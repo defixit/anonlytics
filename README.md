@@ -11,8 +11,7 @@ This Symfony Bundle is part of https://anonlytics.eu, you need a (free) account 
 ## Installation
 Use composer to add the library as dependency for your project
 
-`composer require defixit/anonlytics`
-
+`composer require defixit/anonlytics-bundle`
 
 ## Usage
 
@@ -30,7 +29,7 @@ anonlytics:
 Also add the following line to your `bundles.php`:
 
 ```php
-DeFixIT\Anonlytics\Anonlytics::class => ['all' => true],
+DeFixIT\AnonlyticsBundle\AnonlyticsBundle::class => ['all' => true],
 ```
 
 After this the bundle is set up and ready to connect and send the data to our service.
