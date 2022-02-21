@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DeFixIT\Anonlytics\DependencyInjection;
+namespace DeFixIT\AnonlyticsBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

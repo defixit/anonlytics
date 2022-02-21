@@ -1,5 +1,5 @@
 {
-  "name": "defixit/anonlytics",
+  "name": "defixit/anonlytics-bundle",
   "description": "European anonymized website analytics (GDPR)",
   "keywords": [
     "anonlytics",
@@ -11,11 +11,11 @@
   "require": {
     "php": ">=7.4",
     "symfony/framework-bundle": ">=4.4",
-    "ext-curl": "*"
+    "defixit/anonlytics-lib-php": "^1.0"
   },
   "autoload": {
     "psr-4": {
-      "DeFixIT\\Anonlytics\\": "src/"
+      "DeFixIT\\AnonlyticsBundle\\": "src/"
     }
   },
   "license": "MIT",
@@ -24,5 +24,10 @@
       "name": "Erwin Dirks",
       "email": "erwin@defixit.com"
     }
-  ]
+  ],
+  "extra": {
+    "symfony": {
+      "allow-contrib": "true"
+    }
+  }
 }

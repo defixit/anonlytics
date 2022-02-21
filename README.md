@@ -11,8 +11,7 @@ This Symfony Bundle is part of https://anonlytics.eu, you need a (free) account 
 ## Installation
 Use composer to add the library as dependency for your project
 
-`composer require defixit/anonlytics`
-
+`composer require defixit/anonlytics-bundle`
 
 ## Usage
 
@@ -23,16 +22,22 @@ After you created an account on our website you can create a file with the name 
 
 ```yaml
 anonlytics:
-  client_token: {YOUR_CLIENT_TOKEN}
-  site_token: {YOUR_SITE_TOKEN}
+  client_token: '%env(resolve:ANONLYTICS_CLIENT_TOKEN)%'
+  site_token: '%env(resolve:ANONLYTICS_SITE_TOKEN)%'
 ```
 
 Also add the following line to your `bundles.php`:
 
 ```php
-DeFixIT\Anonlytics\Anonlytics::class => ['all' => true],
+DeFixIT\AnonlyticsBundle\AnonlyticsBundle::class => ['all' => true],
+```
+
+Now you need two new variables in your `.env` file, so paste the next following content at the end of the file:
+
+```dotenv
+###> defixit/anonlytics-bundle ###
+ANONLYTICS_CLIENT_TOKEN=#YOUR_ANONLYTICS_CLIENT_TOKEN
+ANONLYTICS_SITE_TOKEN=#YOUR_ANONLYTICS_SITE_TOKEN
 ```
 
 After this the bundle is set up and ready to connect and send the data to our service.
-
-### For now this bundle is still in Beta, but we are working hard to get the final release asap. (approx. May 2022)

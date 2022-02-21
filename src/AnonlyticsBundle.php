@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace DeFixIT\Anonlytics;
+namespace DeFixIT\AnonlyticsBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class Anonlytics extends Bundle
+class AnonlyticsBundle extends Bundle
 {
 }
